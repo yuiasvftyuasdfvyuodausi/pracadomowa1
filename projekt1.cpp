@@ -10,6 +10,20 @@ long silnia(int n) {
 	return s;
 }
 
+bool czyPierwsza(int a) {
+	if (a < 2) {
+		return false;
+	}
+
+	for (int i = 2; i * i <= a; i++) {
+		if (a % i == 0) {
+			return false;
+		}
+	}
+
+	return true;
+}
+
 int main() {
     int a, b;
     cout << "Podaj liczbe calkowita ";
@@ -22,9 +36,17 @@ int main() {
         cout << "Podaj numer czynnosci, ktora chcesz wykonac" << endl;
         cout << "0. Wyjscie" << endl;
 	cout << "1. Silnia" << endl;
+	cout << "2. Liczba pierwsza" << endl;
         cin >> wyjscie;
 	if (wyjscie == 1) {
 		cout << a << "!=" << silnia(a) << endl;
+	} else if (wyjscie == 2) {
+		cout << a;
+		if (czyPierwsza(a)) {
+			cout << " jest pierwsza" << endl; 
+		} else {
+			cout << " nie jest pierwsza" << endl;
+		}
 	}
     } while(wyjscie != 0);
     return 0;
